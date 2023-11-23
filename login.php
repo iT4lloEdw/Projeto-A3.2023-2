@@ -1,19 +1,19 @@
 <?php
 
 function realizarAnaliseLexica($codigo) {
-    // Definição dos padrões de busca para palavras-chave, identificadores, operadores e delimitadores
+    
     $padraoPalavrasChave = "/\b(if|else|for|while|do|break|class|public|private)\b/";
     $padraoIdentificadores = "/\b[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*\b/";
     $padraoOperadores = "/[\+\-\*\/=<>]/";
     $padraoDelimitadores = "/[\(\)\{\}\[\]\.,;]/";
 
-    // Realiza a busca no código usando expressões regulares
+ 
     preg_match_all($padraoPalavrasChave, $codigo, $palavrasChaveEncontradas);
     preg_match_all($padraoIdentificadores, $codigo, $identificadoresEncontrados);
     preg_match_all($padraoOperadores, $codigo, $operadoresEncontrados);
     preg_match_all($padraoDelimitadores, $codigo, $delimitadoresEncontrados);
 
-    // Exibe os resultados para o usuário
+ 
     echo "<h2>Resultado da Análise Léxica:</h2>";
     echo "<strong>Palavras-chave encontradas:</strong> " . implode(", ", $palavrasChaveEncontradas[0]) . "<br>";
     echo "<strong>Identificadores encontrados:</strong> " . implode(", ", $identificadoresEncontrados[0]) . "<br>";
