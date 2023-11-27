@@ -7,7 +7,6 @@ body {
 .logo {
     width: 250px; 
     height: auto;
-
 }
 
 .logo-container {
@@ -18,19 +17,13 @@ body {
     left: 0;
 }
 
-
-.logo {
-    width: 250px; 
-    height: auto;
-}
-
 h1 {
     text-align: center;
     color: #ffffff; 
 }
 
 form {
-    width: 80%;
+    width: 85%;
     margin: 80px auto;
     background-color: #34495e; 
     padding: 20px;
@@ -63,8 +56,9 @@ input[type="submit"] {
     font-size: 16px;
 }
 
-
 .resultado-analise {
+    width: 85%;
+    margin: 0 auto;
     padding: 20px;
     margin-top: 20px;
     border-radius: 8px;
@@ -73,6 +67,22 @@ input[type="submit"] {
     font-weight: bold;
     display: none; 
     animation: fadeIn 1s ease-out forwards; 
+}
+
+.cor-titulo-palavras {
+    color: #061c2e; 
+}
+
+.cor-titulo-identificadores {
+    color: #061c2e; /
+}
+
+.cor-titulo-operadores {
+    color: #061c2e; 
+}
+
+.cor-titulo-delimitadores {
+    color: #061c2e; 
 }
 
 
@@ -85,7 +95,6 @@ input[type="submit"] {
     }
 }
 
-
 @keyframes slideIn {
     from {
         opacity: 0;
@@ -95,6 +104,4 @@ input[type="submit"] {
         opacity: 1;
         transform: translateY(0);
     }
-
-    
 }
