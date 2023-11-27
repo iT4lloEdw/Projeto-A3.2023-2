@@ -3,6 +3,34 @@
 <head>
     <title>Análise Léxica de Código</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        .code-label {
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            font-size: 25px; 
+            display: flex;
+            align-items: center;
+            gap: 10px; 
+        }
+
+        .logo-linguagem {
+            width: 50px; 
+        }
+
+        #linguagem {
+            width: 120px; 
+            padding: 8px; 
+            border-radius: 5px; 
+            border: 2px solid #ccc; 
+            font-size: 20px; 
+            font-family: 'Times New Roman'
+        }
+        
+        .custom-select,
+        input[type="submit"] {
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
     <div class="logo-container">
@@ -10,12 +38,17 @@
     </div>
 
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-        <label for="codigo" class="code-label">INSIRA O CÓDIGO:</label><br>
-        <textarea id="codigo" name="codigo" rows="10" cols="50"></textarea><br>
+        <label for="codigo" class="code-label">
+            ANALISADOR LÉXICO
+            <img src="https://www.php.net/images/logos/new-php-logo.png" class="logo-linguagem" alt="Logo PHP">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" class="logo-linguagem" alt="Logo Python">
+            <img src="https://seeklogo.com/images/J/java-logo-41D4155FC3-seeklogo.com.png" class="logo-linguagem" alt="Logo Java">
+        </label><br>
+        <textarea id="codigo" name="codigo" rows="10" cols="50" placeholder="Insira o seu código aqui"></textarea><br>
         <label for="linguagem" class="select-label">Selecione a linguagem:</label>
         <div class="custom-select">
             <select name="linguagem" id="linguagem">
-                <option value="php">PHP</option>
+                <option value="php" >PHP</option>
                 <option value="python" >PYTHON</option>
                 <option value="java">JAVA</option>
             </select>
@@ -24,6 +57,7 @@
     </form>
 </body>
 </html>
+
 
 <?php
 function realizarAnaliseLexica($codigo, $linguagem) {
@@ -65,11 +99,13 @@ function realizarAnaliseLexica($codigo, $linguagem) {
    
     echo '<div class="resultado-analise" id="resultado-analise">';
     echo "<h2>Resultado da Análise Léxica:</h2>";
-    echo "<strong>Palavras-chave encontradas:</strong> " . implode(", ", $palavrasChaveEncontradas[0]) . "<br>";
-    echo "<strong>Identificadores encontrados:</strong> " . implode(", ", $identificadoresEncontrados[0]) . "<br>";
-    echo "<strong>Operadores encontrados:</strong> " . implode(", ", $operadoresEncontrados[0]) . "<br>";
-    echo "<strong>Delimitadores encontrados:</strong> " . implode(", ", $delimitadoresEncontrados[0]) . "<br>";
+    echo "<strong><span class='cor-titulo-palavras'>Palavras-chave encontradas:</span></strong> " . implode(", ", $palavrasChaveEncontradas[0]) . "<br>";
+    echo "<strong><span class='cor-titulo-identificadores'>Identificadores encontrados:</span></strong> " . implode(", ", $identificadoresEncontrados[0]) . "<br>";
+    echo "<strong><span class='cor-titulo-operadores'>Operadores encontrados:</span></strong> " . implode(", ", $operadoresEncontrados[0]) . "<br>";
+    echo "<strong><span class='cor-titulo-delimitadores'>Delimitadores encontrados:</span></strong> " . implode(", ", $delimitadoresEncontrados[0]) . "<br>";
     echo '</div>';
+    
+
 
     echo '<script>
         setTimeout(function() {
@@ -85,4 +121,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["codigo"]) && isset($_P
     realizarAnaliseLexica($codigoInserido, $linguagem);
 }
 ?>
-
