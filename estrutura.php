@@ -75,8 +75,8 @@ function realizarAnaliseLexica($codigo, $linguagem) {
             $padraoDelimitadores = "/[\(\)\{\}\[\]\.,;]/";
             break;
         case 'python':
-            $padraoPalavrasChave = "/\b(if|else|for|while|def|class|import|elif|try|except|finally)\b/";
-            $padraoIdentificadores = "/\b(?!(if|else|for|while|def|class|import|elif|try|except|finally))\b[a-zA-Z_][a-zA-Z0-9_]*\b/";
+            $padraoPalavrasChave = "/\b(if|else|for|while|print|def|class|import|elif|try|except|finally)\b/";
+            $padraoIdentificadores = "/\b(?!(if|else|for|while|print|def|class|import|elif|try|except|finally))\b[a-zA-Z_][a-zA-Z0-9_]*\b/";
             $padraoOperadores = "/[\+\-\*\/=<>]|and|or|not/";
             $padraoDelimitadores = "/[\(\)\{\}\[\]\.,;]/";
             break;            
